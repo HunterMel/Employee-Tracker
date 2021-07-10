@@ -1,5 +1,9 @@
 # Employee-Tracker By: Hunter Johnson
 
+Task:
+
+Your challenge this week is to build a command-line application to manage a company's employee database, using Node.js, Inquirer, and MySQL.
+
 Acceptance Criteria: 
 
 GIVEN a command-line application that accepts user input
