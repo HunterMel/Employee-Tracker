@@ -1,6 +1,7 @@
 DROP DATABASE IF EXISTS content_management;
 CREATE DATABASE content_management;
-USE content_management; 
+USE content_management;
+ 
 
 -- create queires 
 
