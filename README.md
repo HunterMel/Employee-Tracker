@@ -22,3 +22,4 @@ THEN I am prompted to select an employee to update and their new role and this i
 
 
 Mock-Up
+![](images/mockup.png)
