@@ -15,4 +15,4 @@ db.connect(function(err) {
 })
 
 
-module.exports = connection
+module.exports = db
