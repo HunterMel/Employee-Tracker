@@ -22,10 +22,10 @@ VALUES
 INSERT INTO employee 
     (first_name, last_name, role_id, manager_id)
 VALUES
-    ('Hunter', 'Johnson', 123, 1)
-    ('Jennifer', 'Smith', 456, 2)
-    ('Beyonce', 'Knowles', 789, 3)
-    ('Camille', 'Farmer', 837, 4)
-    ('Linda', 'Johnson', 935, 5)
+    ('Hunter', 'Johnson', 1, 1)
+    ('Jennifer', 'Smith', 2, 2)
+    ('Beyonce', 'Knowles', 3, 3)
+    ('Camille', 'Farmer', 4, 4)
+    ('Linda', 'Johnson', 5, 5)
 
 

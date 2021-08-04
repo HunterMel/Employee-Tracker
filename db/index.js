@@ -8,24 +8,24 @@ class DB {
         return this.connection.promise().query(`SELECT * FROM department`)
     };
     seeAllRoles() {
-        return this.connection.promise().query(`SELECT * FROM roles`)
+        return this.connection.promise().query(`SELECT * FROM role`)
     };
     selectAllEmployees() {
         return this.connection.promise().query(`SELECT 
     
-        employee.id, employee.first_name, employee.last_name, roles.title AS job_title, department.name AS department, roles.salary
+        employee.id, employee.first_name, employee.last_name, role.title AS job_title, department.name AS department, role.salary
     
         FROM employee
         
-        JOIN roles ON employee.role_id = roles.id
+        JOIN role ON employee.role_id = role.id
         
-        JOIN department ON roles.department_id = department.id;`)
+        JOIN department ON role.department_id = department.id;`)
     };
     createDepartment(department) {
         return this.connection.promise().query(`INSERT INTO department SET ?`, department)
     };   
-    createRole(roles) {
-        return this.connection.promise().query(`INSERT INTO roles SET ?, ?, ?`, roles)
+    createRole(role) {
+        return this.connection.promise().query(`INSERT INTO role SET ?`, role)
     };
     createEmployee(employee) {
         return this.connection.promise().query(`INSERT INTO employee SET ?, ?, ?, ?`, employee)

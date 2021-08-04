@@ -99,25 +99,39 @@ function addNewDepartment() {
     })
 }
  function addRoles() {
-    prompt([{
-        name: 'title',
-        message: 'Please enter the title of the new role.'
-    },
-    {
-        name: 'salary',
-        message: 'Please enter the salary for this new role.'
-    },
-    {
-        type: 'list',
-        name: 'departmentID',
-        choices: ['Sales', 'Human Resources']  
-    }
-    ]).then(res => {
-        let { title, salary, departmentID } = res
-        db.createRole(title, salary, departmentID)
-            .then(() => console.log(`added ${title.title}, ${salary.salary}, ${departmentID.departmentID} to the db`))
-            .then(() => userQuestions())
+    db.seeAllDepartments()
+    .then(([rows]) => {
+
+        let departments = rows.map((row) => {
+            return {
+                name: row.name,
+                value: row.id
+            }
+        })
+
+        prompt([{
+            type: 'input',
+            name: 'title',
+            message: 'Please enter the title of the new role.'
+        },
+        {
+            type: 'number',
+            name: 'salary',
+            message: 'Please enter the salary for this new role.'
+        },
+        {
+            type: 'list',
+            name: 'department_id',
+            choices: departments 
+        }
+        ]).then(res => {
+            let { title, salary, department_id } = res
+            db.createRole(res)
+                .then(() => console.log(`added ${title}, ${salary}, ${department_id} to the db`))
+                .then(() => userQuestions())
+        })
     })
+    
 }
 function addEmployee() {
     prompt([{
